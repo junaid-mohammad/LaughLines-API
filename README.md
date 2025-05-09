@@ -10,8 +10,8 @@
 ## 🖥️ Live Site
 
 👉 **[LaughLines API](https://laughlines-api-dtgjbqgubfgsbceg.canadacentral-01.azurewebsites.net/)** _(Hosted on Microsoft Azure)_  
-👉 **[Swagger Docs](https://laughlines-api.azurewebsites.net/api-docs)** _(Interactive API interface)_
-👉 **[Azure DevOps Project](https://dev.azure.com/Junaid-Arif/LaughLines%20API)**
+👉 **[Swagger Docs](https://laughlines-api-dtgjbqgubfgsbceg.canadacentral-01.azurewebsites.net/api-docs)** _(Interactive API interface)_
+👉 **[Azure DevOps Project](https://dev.azure.com/Junaid-Arif/LaughLines%20API)** _(Deployed on Azure DevOps)_
 
 ---
 
