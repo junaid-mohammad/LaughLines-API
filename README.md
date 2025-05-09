@@ -107,7 +107,7 @@ The API is deployed on **Azure App Service** and configured to auto-deploy throu
    and added a new key-value pair:
 
    - Key: `MASTER_KEY`
-   - Value: _your-secret-key-here_
+   - Value: _your-secret-key-here_<br>
      This is used to authorize destructive operations like deleting all jokes.
 
 8. **Added Start Script to package.json**
