@@ -102,6 +102,21 @@ The API is deployed on **Azure App Service** and configured to auto-deploy throu
 6. **Connected App Service to DevOps**
    Configured CI/CD pipeline in Deployment Center.
 
+7. **Added Environment Variable on Azure**
+   Navigated to **Azure App Service > Configuration > Application settings**
+   and added a new key-value pair:
+
+   - Key: `MASTER_KEY`
+   - Value: _your-secret-key-here_
+     This is used to authorize destructive operations like deleting all jokes.
+
+8. **Added Start Script to package.json**
+   Included the following line so Azure knows how to start the app:
+
+   ```json
+   "start": "node index.js"
+   ```
+
 ---
 
 ### 🔥 Deployment Workflow
