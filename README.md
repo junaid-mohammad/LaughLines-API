@@ -1,7 +1,7 @@
 # LaughLines API 🤖
 
-[![Azure DevOps](https://img.shields.io/badge/Deployed%20via-Azure%20DevOps-blue)](https://dev.azure.com/Junaid-Arif/LaughLines-API)
-[![Azure App Service](https://img.shields.io/badge/Hosted%20on-Azure%20App%20Service-brightgreen)](https://laughlines-api.azurewebsites.net/)
+[![Azure DevOps](https://img.shields.io/badge/Deployed%20via-Azure%20DevOps-blue)](https://dev.azure.com/Junaid-Arif/LaughLines%20API)
+[![Azure App Service](https://img.shields.io/badge/Hosted%20on-Azure%20App%20Service-brightgreen)](https://laughlines-api-dtgjbqgubfgsbceg.canadacentral-01.azurewebsites.net/)
 
 **LaughLines** is a public RESTful API that serves up categorized, developer-friendly jokes. It’s built with Express and Node.js and follows REST principles like statelessness, standardized HTTP methods, resource-based routing, and separation between client and server. The API also features full Swagger documentation and a clean, modular UI served via EJS.
 
@@ -9,8 +9,9 @@
 
 ## 🖥️ Live Site
 
-👉 **[LaughLines API](https://laughlines-api.azurewebsites.net/)** _(Hosted on Microsoft Azure)_  
+👉 **[LaughLines API](https://laughlines-api-dtgjbqgubfgsbceg.canadacentral-01.azurewebsites.net/)** _(Hosted on Microsoft Azure)_  
 👉 **[Swagger Docs](https://laughlines-api.azurewebsites.net/api-docs)** _(Interactive API interface)_
+👉 **[Azure DevOps Project](https://dev.azure.com/Junaid-Arif/LaughLines%20API)**
 
 ---
 
@@ -88,7 +89,7 @@ The API is deployed on **Azure App Service** and configured to auto-deploy throu
 4. **Added DevOps as a Remote**
 
    ```bash
-   git remote add azure https://Junaid-Arif@dev.azure.com/Junaid-Arif/LaughLines-API/_git/LaughLines-API
+   git remote add azure https://Junaid-Arif@dev.azure.com/Junaid-Arif/LaughLines%20API/_git/LaughLines%20API
    ```
 
 5. **Pushed to Both Remotes**
@@ -137,7 +138,7 @@ Use `/filter?type=Food` to retrieve jokes in a category.
 Full API documentation is available and interactive at:
 
 👉 **[localhost:3000/api-docs](http://localhost:3000/api-docs)**
-👉 **[Production API Docs](https://laughlines-api.azurewebsites.net/api-docs)**
+👉 **[Production API Docs](https://laughlines-api-dtgjbqgubfgsbceg.canadacentral-01.azurewebsites.net/api-docs)**
 
 ---
 
@@ -158,7 +159,3 @@ This project is open-source and free to use for personal or educational purposes
 
 - Inspired by the need to learn API design and deployment using Node.js.
 - Design inspired by Swagger UI and Bored API’s landing page.
-
-```
-
-```
