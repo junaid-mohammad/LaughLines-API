@@ -1,0 +1,130 @@
+/* ==== Root Variables ==== */
+:root {
+    --primary: #4e00c2;   /* Primary brand color (used for headings, hover states) */
+    --accent: #3c67e3;    /* Accent color (used for buttons and links) */
+    --bg: #f4f6fa;        /* Background color */
+    --text: #333;         /* Default text color */
+  }
+  
+  /* ==== Base Reset for Full-Height Layout ==== */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ==== Body Layout and Typography ==== */
+  body {
+    display: flex;
+    flex-direction: column;              /* Enable sticky footer layout */
+    justify-content: space-between;     /* Push footer to bottom */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
+    background-color: var(--bg);
+    color: var(--text);
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 60px 30px 40px;
+    box-sizing: border-box;
+  }
+  
+  /* ==== Main Content Area ==== */
+  main {
+    flex-grow: 1;                        /* Fill vertical space before footer */
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /* ==== Headings ==== */
+  h1 {
+    font-size: 2.4rem;
+    color: var(--primary);
+    margin-bottom: 0.4em;
+  }
+  
+  /* ==== Paragraph Styling ==== */
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 1.2em;
+    line-height: 1.6;
+  }
+  
+  /* ==== Link Styling ==== */
+  a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ==== Call-to-Action Button ==== */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 6px;
+    margin: 1.5em 0;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(60, 103, 227, 0.25);
+    text-align: center;
+    gap: 0.5em; /* Space between icon and text */
+  }
+  
+  .cta-btn:hover {
+    background: var(--primary);
+    transform: scale(1.04); /* Slight zoom on hover */
+  }
+  
+  /* ==== Tech Stack Note Styling ==== */
+  .stack {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  /* ==== Disclaimer ==== */
+  .disclaimer {
+    background-color: #f7f7f7;
+    color: #666;
+    border-left: 4px solid #ccc;
+    padding: 10px 16px;
+    margin: 24px auto;
+    font-size: 0.95rem;
+    max-width: 600px;
+    border-radius: 4px;
+    font-style: italic;
+  }
+     
+  /* ==== Footer Styling ==== */
+  footer {
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  footer nav {
+    margin-top: 10px;
+  }
+  
+  footer nav a {
+    color: var(--accent);
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  footer nav a:hover {
+    color: var(--primary);
+  }
+  

@@ -1,0 +1,224 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "LaughLines-API",
+      "version": "1.0.0",
+      "description": "LaughLines is a public RESTful API for fetching, filtering, and managing categorized jokes. It follows REST conventions and supports developer-friendly endpoints for interacting with joke content. \n\n⚠️ Note: This API uses a temporary in-memory data store. All changes are not persisted and will be lost upon server restart."
+    },
+    "servers": [
+      {
+        "url": "https://laughlines-api.azurewebsites.net",
+        "description": "Production server"
+      },
+      {
+        "url": "http://localhost:3000",
+        "description": "Local development server"
+      }
+    ],
+    "paths": {
+      "/random": {
+        "get": {
+          "summary": "Get a random joke",
+          "description": "Fetches a single random joke from the database.",
+          "responses": {
+            "200": {
+              "description": "A random joke object",
+              "content": {
+                "application/json": {
+                  "schema": { "$ref": "#/components/schemas/Joke" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/jokes/{id}": {
+        "get": {
+          "summary": "Retrieve a joke by ID",
+          "description": "Returns a joke that matches the specified numeric ID.",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": { "type": "integer" }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "A joke object",
+              "content": {
+                "application/json": {
+                  "schema": { "$ref": "#/components/schemas/Joke" }
+                }
+              }
+            },
+            "404": { "description": "Joke not found" }
+          }
+        },
+        "put": {
+          "summary": "Replace a joke by ID",
+          "description": "Completely replaces an existing joke with a new joke object.",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": { "type": "integer" }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": { "$ref": "#/components/schemas/JokeInput" }
+              }
+            }
+          },
+          "responses": {
+            "200": { "description": "Joke successfully replaced" }
+          }
+        },
+        "patch": {
+          "summary": "Update parts of a joke",
+          "description": "Allows partial updates to an existing joke (e.g. just the text or type).",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": { "type": "integer" }
+            }
+          ],
+          "requestBody": {
+            "required": false,
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": { "$ref": "#/components/schemas/JokeInput" }
+              }
+            }
+          },
+          "responses": {
+            "200": { "description": "Joke successfully updated" }
+          }
+        },
+        "delete": {
+          "summary": "Delete a joke by ID",
+          "description": "Removes a single joke from the database using its unique ID.",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": { "type": "integer" }
+            }
+          ],
+          "responses": {
+            "200": { "description": "Joke successfully deleted" },
+            "400": { "description": "Invalid ID or joke not found" }
+          }
+        }
+      },
+      "/filter": {
+        "get": {
+          "summary": "Filter jokes by type",
+          "description": "Returns a list of jokes that match a specific category type (e.g. Wordplay, Tech, Food, etc).",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "type",
+              "required": true,
+              "schema": { 
+                "type": "string",
+                "enum": ["Animals", "Food", "Math", "Spooky", "Puns", "Music", "Sports", "Wordplay", "Tech"]
+            },
+              "description": "The joke type to filter by (e.g. 'Tech', 'Animals', 'Food')"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Array of jokes in the specified category",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": { "$ref": "#/components/schemas/Joke" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/jokes": {
+        "post": {
+          "summary": "Add a new joke",
+          "description": "Submits a new joke to the system. Must include joke text and a valid joke type.",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/x-www-form-urlencoded": {
+                "schema": { "$ref": "#/components/schemas/JokeInput" }
+              }
+            }
+          },
+          "responses": {
+            "200": { "description": "New joke successfully added" }
+          }
+        }
+      },
+      "/all": {
+        "delete": {
+          "summary": "Delete ALL jokes (Admin only)",
+          "description": "⚠️ This endpoint wipes all jokes from memory. You must provide a valid `key` query param with the master admin key to proceed.",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "key",
+              "required": true,
+              "schema": { "type": "string" },
+              "description": "The admin/master key used to authorize this destructive operation"
+            }
+          ],
+          "responses": {
+            "200": { "description": "All jokes successfully deleted" },
+            "400": { "description": "Unauthorized: key is missing or incorrect" }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Joke": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "integer", "example": 12 },
+            "jokeText": {
+              "type": "string",
+              "example": "Why don't scientists trust atoms? Because they make up everything."
+            },
+            "jokeType": {
+              "type": "string",
+              "example": "Puns"
+            }
+          }
+        },
+        "JokeInput": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "example": "Why don’t skeletons fight each other? They don’t have the guts."
+            },
+            "type": {
+              "type": "string",
+              "enum": ["Animals", "Food", "Math", "Spooky", "Puns", "Music", "Sports", "Wordplay", "Tech"],
+              "example": "Spooky",
+              "description": "Must be one of the predefined categories"
+            }
+          },
+          "required": ["text", "type"]
+        }
+      }
+    }
+  }  
