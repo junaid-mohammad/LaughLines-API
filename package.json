@@ -1,22 +1,48 @@
 {
-  "name": "6.0-nosql",
+  "name": "laughlines-api",
   "version": "1.0.0",
-  "main": "app.js",
+  "description": "LaughLines is a public RESTful API for fetching, filtering, and managing categorized jokes. Built with Node.js and Express, styled with EJS, and documented using Swagger. Data is stored in-memory and not persisted.",
+  "main": "index.js",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "homepage": "https://laughlines-api.azurewebsites.net/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junaid-mohammad/LaughLines-API.git"
+  },
+  "bugs": "",
+  "keywords": [
+    "Jokes",
+    "Axios",
+    "Express",
+    "EJS",
+    "Swagger",
+    "RESTful API",
+    "Node.js",
+    "in-memory store",
+    "humor"
+  ],
+  "author": "Junaid Arif",
+  "contributors": [],
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": ""
+  },
   "dependencies": {
-    "axios": "^1.7.9",
-    "body-parser": "^1.20.3",
+    "axios": "^1.9.0",
+    "body-parser": "^2.2.0",
     "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
-    "express": "^4.21.2",
+    "express": "^5.1.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   },
-  "description": ""
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "license": "ISC"
 }
